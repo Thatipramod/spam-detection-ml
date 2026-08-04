@@ -3,12 +3,13 @@
    ========================================================= */
 
 .main {
-    background-color: var(--background-color) !important;
+    background-color: var(--background-color); 
 }
 
-h1, h2, h3, h4, p, span, div {
+h1, h2, h3, h4 {
     color: var(--text-color);
     font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-weight: 600;
 }
 
 footer {
@@ -24,7 +25,7 @@ div[data-testid="stMetric"] {
     border: 1px solid rgba(128, 128, 128, 0.2);
     padding: 15px;
     background-color: var(--secondary-background-color);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
 }
 
 .stButton > button {
@@ -32,39 +33,34 @@ div[data-testid="stMetric"] {
     border-radius: 6px;
     height: 42px;
     font-weight: 500;
-    background-color: #2563eb;
+    background-color: #2563eb; 
     color: #ffffff !important;
     border: none;
     transition: background-color 0.2s ease;
 }
 
 .stButton > button:hover {
-    background-color: #1d4ed8;
+    background-color: #1d4ed8; 
     color: #ffffff !important;
 }
 
 /* =========================================================
-   SIDEBAR & MOBILE OVERLAY (ULTRA AGGRESSIVE FIX)
+   SIDEBAR & MOBILE OVERLAY FIX (FORCED SOLID BACKGROUND)
    ========================================================= */
 
-/* 1. Force every single sidebar layer to be solid */
+/* Target every parent and nested container inside the sidebar */
 section[data-testid="stSidebar"],
 section[data-testid="stSidebar"] > div,
-section[data-testid="stSidebar"] > div > div,
-[data-testid="stSidebarContent"] {
-    background-color: var(--secondary-background-color) !important;
-    opacity: 1 !important; 
+[data-testid="stSidebarContent"],
+[data-testid="stSidebarUserContent"],
+[data-testid="stSidebarNav"] {
+    background-color: var(--secondary-background-color, #f1f5f9) !important;
+    opacity: 1 !important;
 }
 
-/* 2. Force text to adapt to theme */
-[data-testid="stSidebarNav"] a,
-[data-testid="stSidebarNav"] span {
-    color: var(--text-color) !important;
-}
-
+/* Section Headers ("Main App", "Analytics & Info") */
 [data-testid="stSidebarNav"] > ul > li > div {
-    color: var(--text-color) !important;
-    opacity: 0.6;
+    color: var(--faded-text-color) !important;
     font-size: 0.75rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
@@ -73,43 +69,41 @@ section[data-testid="stSidebar"] > div > div,
     padding-left: 15px;
 }
 
-/* 3. Links */
+/* Base Link Styling */
 [data-testid="stSidebarNav"] a {
     border-radius: 6px;
-    margin: 4px 12px;
+    margin: 4px 12px; 
     padding: 8px 12px;
+    color: var(--text-color); 
     transition: all 0.2s ease;
 }
 
 [data-testid="stSidebarNav"] a:hover {
-    background-color: rgba(128, 128, 128, 0.15); 
+    background-color: rgba(128, 128, 128, 0.1);
 }
 
-/* ✨ Active Page Highlight ✨ */
+/* ✨ The Active Page Highlight ✨ */
 [data-testid="stSidebarNav"] a[aria-current="page"] {
-    background-color: rgba(37, 99, 235, 0.15) !important; 
-    border-left: 4px solid #2563eb !important;
+    background-color: rgba(37, 99, 235, 0.15) !important;
+    color: #2563eb !important;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #2563eb; 
 }
 
 [data-testid="stSidebarNav"] a[aria-current="page"] span {
-    color: #2563eb !important; 
-    font-weight: 700 !important;
+    color: #2563eb !important;
 }
 
 [data-testid="stSidebarNav"] svg {
     margin-right: 8px;
-    fill: currentColor !important; 
 }
 
-/* =========================================================
-   📱 MOBILE RESPONSIVE Z-INDEX FIX
-   ========================================================= */
-
+/* Mobile Drawer Stacking & Shadow */
 @media (max-width: 768px) {
-    /* Absolute override for mobile drawer */
-    section[data-testid="stSidebar"],
-    section[data-testid="stSidebar"] > div {
+    section[data-testid="stSidebar"] {
         z-index: 999999 !important;
-        background-color: var(--secondary-background-color) !important;
+        width: 80% !important;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3) !important;
     }
 }
