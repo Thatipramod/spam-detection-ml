@@ -285,7 +285,7 @@ GitHub:
 https://github.com/Thatipramod
 
 LinkedIn:
-(Add your LinkedIn profile here)
+https://www.linkedin.com/in/thati-pramod/
 
 ---
 
