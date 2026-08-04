@@ -99,7 +99,7 @@ Spam / Ham Prediction
 - Spam Messages: **747**
 
 Source:
-https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection
+https://github.com/Thatipramod/spam-detection-ml/blob/main/spam.csv
 
 ---
 
