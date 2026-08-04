@@ -1,58 +1,64 @@
 
-/* Light, clean background for the main content */
+/* Use Streamlit's native background variable for adaptive theming */
 .main {
-    background-color: #f8fafc; 
+    background-color: var(--background-color); 
 }
 
+/* Text color adapts automatically to Light/Dark mode */
 h1, h2, h3, h4 {
-    color: #0f172a;
+    color: var(--text-color);
     font-family: 'Inter', 'Segoe UI', sans-serif;
     font-weight: 600;
-}
-
-/* Minimalist Card Styling for Metrics */
-div[data-testid="stMetric"] {
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-    padding: 15px;
-    background-color: #ffffff;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
 }
 
 footer {
     visibility: hidden;
 }
 
-/* Modern, flat buttons */
+/* =========================================================
+   COMPONENTS (METRICS & BUTTONS)
+   ========================================================= */
+
+/* Minimalist Card Styling for Metrics */
+div[data-testid="stMetric"] {
+    border-radius: 8px;
+    /* Transparent border adapts to dark/light backgrounds automatically */
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    padding: 15px;
+    background-color: var(--secondary-background-color);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
+}
+
+/* Modern, flat buttons (Retained your primary blue accent) */
 .stButton > button {
     width: 100%;
     border-radius: 6px;
     height: 42px;
     font-weight: 500;
     background-color: #2563eb; 
-    color: #ffffff;
+    color: #ffffff !important;
     border: none;
     transition: background-color 0.2s ease;
 }
 
 .stButton > button:hover {
     background-color: #1d4ed8; 
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
-/* ========================================= */
-/* CLEAN & SIMPLE SIDEBAR NAVIGATION         */
-/* ========================================= */
+/* =========================================================
+   CLEAN & SIMPLE SIDEBAR NAVIGATION         
+   ========================================================= */
 
-/* Very subtle background for the sidebar */
+/* Adaptive background for the sidebar */
 [data-testid="stSidebar"] {
-    background-color: #f1f5f9;
-    border-right: 1px solid #e2e8f0;
+    background-color: var(--secondary-background-color);
+    border-right: 1px solid rgba(128, 128, 128, 0.2);
 }
 
 /* Section Headers ("Main App", "Analytics & Info") */
 [data-testid="stSidebarNav"] > ul > li > div {
-    color: #64748b !important;
+    color: var(--faded-text-color) !important;
     font-size: 0.75rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
@@ -66,18 +72,19 @@ footer {
     border-radius: 6px;
     margin: 4px 12px; 
     padding: 8px 12px;
-    color: #334155;
+    color: var(--text-color); 
     transition: all 0.2s ease;
 }
 
-/* Hover Effect for inactive links */
+/* Hover Effect for inactive links (Subtle transparent gray) */
 [data-testid="stSidebarNav"] a:hover {
-    background-color: #e2e8f0;
+    background-color: rgba(128, 128, 128, 0.1);
 }
 
 /* ✨ The Active Page Highlight (Clean Left Accent) ✨ */
 [data-testid="stSidebarNav"] a[aria-current="page"] {
-    background-color: #ffffff;
+    /* Light transparent blue background works on both themes */
+    background-color: rgba(37, 99, 235, 0.1);
     color: #2563eb !important;
     font-weight: 600;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
