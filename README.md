@@ -231,13 +231,13 @@ streamlit run app.py
 
 ## 📊 Analytics
 
-![Analytics](screenshots/analytics.png)
+![Analytics](screenshots/Analytics.png)
 
 ---
 
 ## 📈 Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/Dashboard.png)
 
 ---
 
