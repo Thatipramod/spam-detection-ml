@@ -85,5 +85,10 @@ pg = st.navigation({
     "Analytics & Info": [analytics, dashboard, about]
 })
 
-
+# --- SIDEBAR FOOTER ---
+with st.sidebar:
+    st.markdown("---")
+    st.markdown("👨‍💻 **Developed by:**")
+    st.markdown("### **Thati Pramod**")
+    st.caption("© 2026 Spam Detection System")
 pg.run()
