@@ -3,7 +3,7 @@
    ========================================================= */
 
 .main {
-    background-color: var(--background-color); 
+    background-color: var(--background-color);
 }
 
 h1, h2, h3, h4 {
@@ -17,77 +17,94 @@ footer {
 }
 
 /* =========================================================
-   COMPONENTS (METRICS & BUTTONS)
+   METRICS
    ========================================================= */
 
 div[data-testid="stMetric"] {
     border-radius: 8px;
-    border: 1px solid rgba(128, 128, 128, 0.2);
+    border: 1px solid rgba(128,128,128,0.2);
     padding: 15px;
-    background-color: var(--secondary-background-color);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
-}
-
-.stButton > button {
-    width: 100%;
-    border-radius: 6px;
-    height: 42px;
-    font-weight: 500;
-    background-color: #2563eb; 
-    color: #ffffff !important;
-    border: none;
-    transition: background-color 0.2s ease;
-}
-
-.stButton > button:hover {
-    background-color: #1d4ed8; 
-    color: #ffffff !important;
+    background: var(--secondary-background-color);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 
 /* =========================================================
-   SIDEBAR (DESKTOP & GENERAL)
+   BUTTONS
    ========================================================= */
 
-section[data-testid="stSidebar"],
-section[data-testid="stSidebar"] > div,
-[data-testid="stSidebarContent"],
-[data-testid="stSidebarUserContent"],
-[data-testid="stSidebarNav"] {
-    background-color: var(--secondary-background-color) !important;
-    opacity: 1 !important;
-}
-
-/* Section Headers */
-[data-testid="stSidebarNav"] > ul > li > div {
-    color: var(--text-color) !important;
-    opacity: 0.7;
-    font-size: 0.75rem !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.05em;
-    margin-top: 15px;
-    padding-left: 15px;
-}
-
-/* Base Link Styling */
-[data-testid="stSidebarNav"] a {
+.stButton > button {
+    width: 100%;
+    height: 42px;
+    border: none;
     border-radius: 6px;
-    margin: 4px 12px; 
+    background: #2563eb;
+    color: white !important;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.stButton > button:hover {
+    background: #1d4ed8;
+    color: white !important;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+section[data-testid="stSidebar"] {
+    background: var(--secondary-background-color) !important;
+}
+
+section[data-testid="stSidebar"] > div {
+    background: var(--secondary-background-color) !important;
+}
+
+[data-testid="stSidebarContent"] {
+    background: var(--secondary-background-color) !important;
+}
+
+[data-testid="stSidebarUserContent"] {
+    background: var(--secondary-background-color) !important;
+}
+
+[data-testid="stSidebarNav"] {
+    background: var(--secondary-background-color) !important;
+}
+
+/* Sidebar Section Headers */
+
+[data-testid="stSidebarNav"] > ul > li > div {
+    color: var(--text-color);
+    opacity: .7;
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding-left: 15px;
+    margin-top: 15px;
+}
+
+/* Sidebar Links */
+
+[data-testid="stSidebarNav"] a {
+    margin: 4px 12px;
     padding: 8px 12px;
-    color: var(--text-color) !important; 
-    transition: all 0.2s ease;
+    border-radius: 6px;
+    color: var(--text-color) !important;
+    transition: .2s;
 }
 
 [data-testid="stSidebarNav"] a:hover {
-    background-color: rgba(128, 128, 128, 0.15);
+    background: rgba(128,128,128,.15);
 }
 
-/* ✨ Active Page Highlight ✨ */
+/* Active Page */
+
 [data-testid="stSidebarNav"] a[aria-current="page"] {
-    background-color: rgba(37, 99, 235, 0.2) !important;
+    background: rgba(37,99,235,.18) !important;
+    border-left: 4px solid #2563eb;
     font-weight: 600;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    border-left: 4px solid #2563eb; 
 }
 
 [data-testid="stSidebarNav"] a[aria-current="page"] span {
@@ -95,36 +112,49 @@ section[data-testid="stSidebar"] > div,
 }
 
 [data-testid="stSidebarNav"] svg {
-    margin-right: 8px;
     fill: currentColor !important;
+    margin-right: 8px;
 }
 
 /* =========================================================
-   📱 MOBILE DRAWER SINGLE-LAYER & SHADOW FIX
+   MOBILE SIDEBAR FIX
    ========================================================= */
 
-@media (max-width: 768px) {
-    /* 1. Set clean solid background and single non-striped shadow */
-    section[data-testid="stSidebar"] {
-        background-color: var(--secondary-background-color) !important;
+@media (max-width:768px){
+
+    /* Solid sidebar */
+
+    section[data-testid="stSidebar"],
+    section[data-testid="stSidebar"] > div,
+    [data-testid="stSidebarContent"],
+    [data-testid="stSidebarUserContent"],
+    [data-testid="stSidebarNav"]{
+
         background: var(--secondary-background-color) !important;
         opacity: 1 !important;
+
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
-        z-index: 999999 !important;
-        width: 80% !important;
-        box-shadow: 5px 0 20px rgba(0, 0, 0, 0.3) !important;
+
+        box-shadow: 0 0 25px rgba(0,0,0,.35);
     }
 
-    /* 2. Strip conflicting inner box-shadows that cause the multi-layer bands */
-    section[data-testid="stSidebar"] > div,
-    section[data-testid="stSidebar"] [data-testid="stSidebarContent"],
-    section[data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {
-        background-color: var(--secondary-background-color) !important;
+    /* Remove transparent glass effect */
+
+    div[data-testid="stSidebar"]{
         background: var(--secondary-background-color) !important;
-        opacity: 1 !important;
-        box-shadow: none !important;
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
     }
+
+    dialog,
+    [role="dialog"]{
+        backdrop-filter:none !important;
+        -webkit-backdrop-filter:none !important;
+    }
+
+    /* Prevent page from showing through sidebar */
+
+    section[data-testid="stSidebar"] *{
+        opacity:1 !important;
+    }
+
 }
