@@ -44,29 +44,27 @@ div[data-testid="stMetric"] {
 }
 
 /* =========================================================
-   SIDEBAR & MOBILE OVERLAY (LIGHT & DARK MODE SAFE)
+   SIDEBAR & MOBILE OVERLAY (ULTRA AGGRESSIVE FIX)
    ========================================================= */
 
-/* 1. Force solid background using native theme variables */
+/* 1. Force every single sidebar layer to be solid */
 section[data-testid="stSidebar"],
 section[data-testid="stSidebar"] > div,
-[data-testid="stSidebarContent"],
-[data-testid="stSidebarUserContent"],
-[data-testid="stSidebarNav"] {
+section[data-testid="stSidebar"] > div > div,
+[data-testid="stSidebarContent"] {
     background-color: var(--secondary-background-color) !important;
-    opacity: 1 !important; /* Prevents text bleeding through on mobile */
+    opacity: 1 !important; 
 }
 
-/* 2. Force all text to adapt to the current theme */
+/* 2. Force text to adapt to theme */
 [data-testid="stSidebarNav"] a,
 [data-testid="stSidebarNav"] span {
     color: var(--text-color) !important;
 }
 
-/* Section Headers ("Main App", "Analytics") */
 [data-testid="stSidebarNav"] > ul > li > div {
     color: var(--text-color) !important;
-    opacity: 0.6; /* Softens the header without using a hardcoded color */
+    opacity: 0.6;
     font-size: 0.75rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
@@ -75,7 +73,7 @@ section[data-testid="stSidebar"] > div,
     padding-left: 15px;
 }
 
-/* Base Link Styling */
+/* 3. Links */
 [data-testid="stSidebarNav"] a {
     border-radius: 6px;
     margin: 4px 12px;
@@ -84,36 +82,34 @@ section[data-testid="stSidebar"] > div,
 }
 
 [data-testid="stSidebarNav"] a:hover {
-    background-color: rgba(128, 128, 128, 0.15); /* Safe hover for both modes */
+    background-color: rgba(128, 128, 128, 0.15); 
 }
 
 /* ✨ Active Page Highlight ✨ */
 [data-testid="stSidebarNav"] a[aria-current="page"] {
-    /* Semi-transparent blue works beautifully on both Light & Dark backgrounds */
     background-color: rgba(37, 99, 235, 0.15) !important; 
     border-left: 4px solid #2563eb !important;
 }
 
 [data-testid="stSidebarNav"] a[aria-current="page"] span {
-    color: #2563eb !important; /* Keep active text blue */
+    color: #2563eb !important; 
     font-weight: 700 !important;
 }
 
 [data-testid="stSidebarNav"] svg {
     margin-right: 8px;
-    fill: currentColor !important; /* Forces icons to inherit the text color */
+    fill: currentColor !important; 
 }
 
 /* =========================================================
-   📱 MOBILE RESPONSIVE FIX
+   📱 MOBILE RESPONSIVE Z-INDEX FIX
    ========================================================= */
 
 @media (max-width: 768px) {
-    /* Ensure sidebar floats on top of content with zero transparency */
-    section[data-testid="stSidebar"] {
+    /* Absolute override for mobile drawer */
+    section[data-testid="stSidebar"],
+    section[data-testid="stSidebar"] > div {
         z-index: 999999 !important;
-        width: 80% !important;
         background-color: var(--secondary-background-color) !important;
-        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5) !important; /* Shadow creates separation */
     }
 }
