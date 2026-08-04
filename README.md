@@ -1,135 +1,190 @@
-# spam-detection-ml
-A Streamlit-based SMS spam detection system that uses machine learning and NLP to classify messages as spam or ham with support for single and batch predictions.
-```markdown
-# 🛡️ Spam Detection System
+# 🛡️ Spam Detection ML
 
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)](#)
-[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)](#)
-[![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?logo=scikit-learn&logoColor=white)](#)
+A **Streamlit-based SMS Spam Detection System** that uses **Machine Learning** and **Natural Language Processing (NLP)** to classify messages as **Spam** or **Ham**, with support for both single-message and batch predictions.
 
-A powerful, interactive Machine Learning web application that predicts whether an SMS or Email message is **Spam** or **Ham (Legitimate)**. Built with Python and Streamlit, this app offers real-time single message analysis, batch CSV processing, and an interactive data dashboard.
-
-### 🔗 Links
-* **🟢 Live Demo:** [Click here to view the live app](https://spam-predictor.streamlit.app/)
-* **📂 GitHub Repository:** [Thatipramod/spam-detection-ml](https://github.com/Thatipramod/spam-detection-ml)
+![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?logo=scikit-learn&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## 📸 Project Screenshots
+## 📌 Overview
 
-| 🏠 Home / Predictor | 📂 Batch Prediction |
-| :---: | :---: |
-| ![Spam Predictor](images/predictor.png) | ![Batch Prediction](images/batch.png) |
-
-| 📊 Analytics | 📈 Dashboard |
-| :---: | :---: |
-| ![Analytics](images/analytics.png) | ![Dashboard](images/dashboard.png) |
+Spam Detection ML is a machine learning web application that classifies SMS messages as **Spam** or **Ham**. Built with **Python**, **Streamlit**, and **Scikit-learn**, the application provides an intuitive interface for real-time predictions, batch processing, and data analytics.
 
 ---
 
-## 🚀 Key Features
+## 🚀 Features
 
-* **📩 Real-time Prediction:** Paste any message or email and instantly find out if it's spam, complete with a confidence score.
-* **📂 Batch Processing:** Upload a CSV file of messages and let the model classify all of them at once.
-* **📊 Visual Analytics:** Explore the dataset through interactive charts, word clouds, and distribution graphs.
-* **📋 Export Results:** Download your batch prediction results as a clean CSV file.
-* **⚡ Fast & Lightweight:** Powered by an optimized Logistic Regression model and TF-IDF vectorization.
-
----
-
-## 🤖 Machine Learning Details
-
-**Dataset Used:** SMS Spam Collection Dataset (5,572 messages)
-* ✅ **Ham:** ~86.6%
-* 🚨 **Spam:** ~13.4%
-
-**Algorithm Selection:**
-During development, three algorithms were tested: *Naive Bayes*, *Random Forest*, and *Logistic Regression*. 
-**Logistic Regression** was chosen as the final model because it provided the best balance between overall accuracy, processing speed, and precision in identifying spam.
-
-### ⚙️ How it Works (Under the Hood)
-1. **Load Dataset:** Raw text messages are ingested.
-2. **Clean Text:** Punctuation is removed, URLs are stripped, and text is standardized.
-3. **TF-IDF Vectorization:** Words are converted into numerical importance scores.
-4. **Classification:** The Logistic Regression model evaluates the vector.
-5. **Output:** The app displays the Spam/Ham result and confidence metric.
+- 📩 Real-time SMS spam prediction
+- 📂 Batch prediction using CSV files
+- 📊 Interactive analytics dashboard
+- 📈 Dataset visualization and statistics
+- 🤖 Machine Learning-based classification
+- ⚡ Fast and lightweight Streamlit interface
 
 ---
 
-## 📚 Tech Stack & Requirements
+## 🖥️ Application Pages
 
-To run this project, you need the following Python libraries installed:
+- 🏠 Home
+- 📩 Spam Predictor
+- 📂 Batch Prediction
+- 📊 Analytics
+- 📈 Dashboard
+- ℹ️ About
 
-**`requirements.txt`**
+---
+
+## 🧠 Machine Learning Pipeline
+
+1. Data preprocessing
+2. Text cleaning
+3. Tokenization
+4. TF-IDF Vectorization
+5. Logistic Regression Classification
+6. Spam/Ham Prediction
+
+### Model
+
+- **Algorithm:** Logistic Regression
+- **Vectorizer:** TF-IDF
+- **Language:** Python
+- **Framework:** Scikit-learn
+
+---
+
+## 📂 Project Structure
+
 ```text
-streamlit
-pandas
-numpy
-scikit-learn
-matplotlib
-seaborn
-wordcloud
-
+spam-detection-ml/
+│
+├── app.py
+├── requirements.txt
+├── train_model.py
+├── utils.py
+├── style.css
+├── spam.csv
+│
+├── dataset/
+├── pages/
+│   ├── About.py
+│   ├── Analytics.py
+│   ├── Batch_Prediction.py
+│   ├── Dashboard.py
+│   └── Spam_Predictor.py
+│
+├── plots/
+└── README.md
 ```
 
 ---
 
-## 🛠️ Installation & Local Setup
+## 🛠️ Tech Stack
 
-Want to run this app on your local machine? Follow these steps:
+- Python
+- Streamlit
+- Pandas
+- NumPy
+- Scikit-learn
+- Matplotlib
+- NLTK
 
-**1. Clone the repository**
+---
+
+## 📦 Installation
+
+### Clone the repository
 
 ```bash
-git clone [https://github.com/Thatipramod/spam-detection-ml.git](https://github.com/Thatipramod/spam-detection-ml.git)
+git clone https://github.com/Thatipramod/spam-detection-ml.git
 cd spam-detection-ml
-
 ```
 
-**2. Install dependencies**
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
-
 ```
 
-**3. Train the model (Optional)**
-*If you need to generate a fresh `model.pkl` file, run the training script:*
-
-```bash
-python train_model.py
-
-```
-
-**4. Run the Streamlit app**
+### Run the application
 
 ```bash
 streamlit run app.py
-
 ```
 
 ---
 
-## 🔮 Future Enhancements
+## 📷 Screenshots
 
-* [ ] Add explicit support for extensive Email Spam Detection.
-* [ ] Build a REST API for real-time predictions outside the web app.
-* [ ] Upgrade to Deep Learning models (LSTM / BERT) for higher context understanding.
-* [ ] Introduce Multi-language spam detection.
-* [ ] Deploy seamlessly via Docker.
+> Add your application screenshots here.
+
+```
+screenshots/
+├── home.png
+├── predictor.png
+├── batch_prediction.png
+├── analytics.png
+└── dashboard.png
+```
+
+Example:
+
+```markdown
+![Home](screenshots/home.png)
+
+![Spam Predictor](screenshots/predictor.png)
+
+![Analytics](screenshots/analytics.png)
+```
 
 ---
 
-## 👨‍💻 Developer
+## 📊 Dataset
+
+- SMS Spam Collection Dataset
+- Total Messages: **5,572**
+- Ham Messages: **4,825**
+- Spam Messages: **747**
+
+---
+
+## 🔮 Future Improvements
+
+- Email spam detection
+- Deep Learning models (LSTM/BERT)
+- REST API integration
+- Multi-language support
+- Docker deployment
+- Cloud database integration
+
+---
+
+## 🌐 Live Demo
+
+**Streamlit App**
+
+https://spamguard.streamlit.app
+
+---
+
+## 📁 GitHub Repository
+
+https://github.com/Thatipramod/spam-detection-ml
+
+---
+
+## 👨‍💻 Author
 
 **Thati Pramod**
 
-* **Role:** Full-stack Developer & ML Engineer
-* **Language:** Python
-* **Framework:** Streamlit, Scikit-Learn
+GitHub: https://github.com/Thatipramod
 
-*Thank you for checking out the Spam Detection System! If you found this helpful, feel free to give the repository a ⭐.*
+---
 
-```
+## ⭐ Support
 
-```
+If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
+
+It helps others discover the project and motivates future improvements.
