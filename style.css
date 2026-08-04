@@ -45,10 +45,9 @@ div[data-testid="stMetric"] {
 }
 
 /* =========================================================
-   SIDEBAR & MOBILE OVERLAY FIX (THEME AWARE)
+   SIDEBAR (DESKTOP & GENERAL)
    ========================================================= */
 
-/* Target every parent and nested container inside the sidebar */
 section[data-testid="stSidebar"],
 section[data-testid="stSidebar"] > div,
 [data-testid="stSidebarContent"],
@@ -100,11 +99,21 @@ section[data-testid="stSidebar"] > div,
     fill: currentColor !important;
 }
 
-/* Mobile Drawer Stacking & Shadow */
+/* =========================================================
+   📱 MOBILE DRAWER SOLID OVERLAY FIX (NO TRANSPARENCY)
+   ========================================================= */
+
 @media (max-width: 768px) {
-    section[data-testid="stSidebar"] {
+    /* Forces the mobile sidebar and all its internal structural wrappers to be completely opaque */
+    section[data-testid="stSidebar"],
+    section[data-testid="stSidebar"] > div,
+    section[data-testid="stSidebar"] div[data-testid="stSidebarContent"],
+    section[data-testid="stSidebar"] div[data-testid="stSidebarUserContent"] {
+        background-color: var(--secondary-background-color) !important;
+        opacity: 1 !important;
+        backdrop-filter: none !important;
         z-index: 999999 !important;
         width: 80% !important;
-        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5) !important;
+        box-shadow: 15px 0 50px rgba(0, 0, 0, 0.6) !important;
     }
 }
