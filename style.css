@@ -45,7 +45,7 @@ div[data-testid="stMetric"] {
 }
 
 /* =========================================================
-   SIDEBAR & MOBILE OVERLAY FIX (FORCED SOLID BACKGROUND)
+   SIDEBAR & MOBILE OVERLAY FIX (THEME AWARE)
    ========================================================= */
 
 /* Target every parent and nested container inside the sidebar */
@@ -54,13 +54,14 @@ section[data-testid="stSidebar"] > div,
 [data-testid="stSidebarContent"],
 [data-testid="stSidebarUserContent"],
 [data-testid="stSidebarNav"] {
-    background-color: var(--secondary-background-color, #f1f5f9) !important;
+    background-color: var(--secondary-background-color) !important;
     opacity: 1 !important;
 }
 
 /* Section Headers ("Main App", "Analytics & Info") */
 [data-testid="stSidebarNav"] > ul > li > div {
-    color: var(--faded-text-color) !important;
+    color: var(--text-color) !important;
+    opacity: 0.7;
     font-size: 0.75rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
@@ -74,18 +75,17 @@ section[data-testid="stSidebar"] > div,
     border-radius: 6px;
     margin: 4px 12px; 
     padding: 8px 12px;
-    color: var(--text-color); 
+    color: var(--text-color) !important; 
     transition: all 0.2s ease;
 }
 
 [data-testid="stSidebarNav"] a:hover {
-    background-color: rgba(128, 128, 128, 0.1);
+    background-color: rgba(128, 128, 128, 0.15);
 }
 
 /* ✨ The Active Page Highlight ✨ */
 [data-testid="stSidebarNav"] a[aria-current="page"] {
-    background-color: rgba(37, 99, 235, 0.15) !important;
-    color: #2563eb !important;
+    background-color: rgba(37, 99, 235, 0.2) !important;
     font-weight: 600;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     border-left: 4px solid #2563eb; 
@@ -97,6 +97,7 @@ section[data-testid="stSidebar"] > div,
 
 [data-testid="stSidebarNav"] svg {
     margin-right: 8px;
+    fill: currentColor !important;
 }
 
 /* Mobile Drawer Stacking & Shadow */
@@ -104,6 +105,6 @@ section[data-testid="stSidebar"] > div,
     section[data-testid="stSidebar"] {
         z-index: 999999 !important;
         width: 80% !important;
-        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3) !important;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5) !important;
     }
 }
