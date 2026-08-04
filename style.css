@@ -117,15 +117,10 @@ section[data-testid="stSidebar"] > div {
 }
 
 /* =========================================================
-   MOBILE SIDEBAR FIX
-   ========================================================= */
-
-/* =========================================================
-   MOBILE SIDEBAR
+   MOBILE SIDEBAR FIX (GENERAL)
    ========================================================= */
 
 @media (max-width: 768px) {
-
     section[data-testid="stSidebar"],
     section[data-testid="stSidebar"] > div,
     [data-testid="stSidebarContent"],
@@ -136,24 +131,38 @@ section[data-testid="stSidebar"] > div {
         -webkit-backdrop-filter: none !important;
     }
 
-}
-
-    /* Remove transparent glass effect */
-
-    div[data-testid="stSidebar"]{
+    div[data-testid="stSidebar"] {
         background: var(--secondary-background-color) !important;
     }
 
     dialog,
-    [role="dialog"]{
-        backdrop-filter:none !important;
-        -webkit-backdrop-filter:none !important;
+    [role="dialog"] {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
 
-    /* Prevent page from showing through sidebar */
+    section[data-testid="stSidebar"] * {
+        opacity: 1 !important;
+    }
+}
 
-    section[data-testid="stSidebar"] *{
-        opacity:1 !important;
+/* =========================================================
+   MOBILE SIDEBAR FIX (LIGHT MODE ONLY)
+   ========================================================= */
+
+@media (max-width: 768px) {
+    html:not([data-theme="dark"]) section[data-testid="stSidebar"],
+    html:not([data-theme="dark"]) section[data-testid="stSidebar"] > div,
+    html:not([data-theme="dark"]) [data-testid="stSidebarContent"],
+    html:not([data-theme="dark"]) [data-testid="stSidebarUserContent"],
+    html:not([data-theme="dark"]) [data-testid="stSidebarNav"] {
+        background: #ffffff !important;
+        opacity: 1 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
 
+    html:not([data-theme="dark"]) section[data-testid="stSidebar"] * {
+        opacity: 1 !important;
+    }
 }
