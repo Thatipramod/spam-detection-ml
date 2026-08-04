@@ -1,5 +1,6 @@
 # spam-detection-ml
 A Streamlit-based SMS spam detection system that uses machine learning and NLP to classify messages as spam or ham with support for single and batch predictions.
+```markdown
 # 🛡️ Spam Detection System
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)](#)
@@ -9,22 +10,20 @@ A Streamlit-based SMS spam detection system that uses machine learning and NLP t
 A powerful, interactive Machine Learning web application that predicts whether an SMS or Email message is **Spam** or **Ham (Legitimate)**. Built with Python and Streamlit, this app offers real-time single message analysis, batch CSV processing, and an interactive data dashboard.
 
 ### 🔗 Links
-* **🟢 Live Demo:** [Click here to view the live app](https://spam-predictor.streamlit.app/) *(Update with your exact link if different)*
+* **🟢 Live Demo:** [Click here to view the live app](https://spam-predictor.streamlit.app/)
 * **📂 GitHub Repository:** [Thatipramod/spam-detection-ml](https://github.com/Thatipramod/spam-detection-ml)
 
 ---
 
 ## 📸 Project Screenshots
 
-*(Replace the placeholder links below with the actual paths to your images, e.g., `images/home.png`)*
-
 | 🏠 Home / Predictor | 📂 Batch Prediction |
 | :---: | :---: |
-| ![Spam Predictor](insert_link_to_predictor_image_here) | ![Batch Prediction](insert_link_to_batch_image_here) |
+| ![Spam Predictor](images/predictor.png) | ![Batch Prediction](images/batch.png) |
 
 | 📊 Analytics | 📈 Dashboard |
 | :---: | :---: |
-| ![Analytics](insert_link_to_analytics_image_here) | ![Dashboard](insert_link_to_dashboard_image_here) |
+| ![Analytics](images/analytics.png) | ![Dashboard](images/dashboard.png) |
 
 ---
 
@@ -59,7 +58,7 @@ During development, three algorithms were tested: *Naive Bayes*, *Random Forest*
 
 ## 📚 Tech Stack & Requirements
 
-To run this project, you need the following Python libraries installed. 
+To run this project, you need the following Python libraries installed:
 
 **`requirements.txt`**
 ```text
@@ -70,3 +69,67 @@ scikit-learn
 matplotlib
 seaborn
 wordcloud
+
+```
+
+---
+
+## 🛠️ Installation & Local Setup
+
+Want to run this app on your local machine? Follow these steps:
+
+**1. Clone the repository**
+
+```bash
+git clone [https://github.com/Thatipramod/spam-detection-ml.git](https://github.com/Thatipramod/spam-detection-ml.git)
+cd spam-detection-ml
+
+```
+
+**2. Install dependencies**
+
+```bash
+pip install -r requirements.txt
+
+```
+
+**3. Train the model (Optional)**
+*If you need to generate a fresh `model.pkl` file, run the training script:*
+
+```bash
+python train_model.py
+
+```
+
+**4. Run the Streamlit app**
+
+```bash
+streamlit run app.py
+
+```
+
+---
+
+## 🔮 Future Enhancements
+
+* [ ] Add explicit support for extensive Email Spam Detection.
+* [ ] Build a REST API for real-time predictions outside the web app.
+* [ ] Upgrade to Deep Learning models (LSTM / BERT) for higher context understanding.
+* [ ] Introduce Multi-language spam detection.
+* [ ] Deploy seamlessly via Docker.
+
+---
+
+## 👨‍💻 Developer
+
+**Thati Pramod**
+
+* **Role:** Full-stack Developer & ML Engineer
+* **Language:** Python
+* **Framework:** Streamlit, Scikit-Learn
+
+*Thank you for checking out the Spam Detection System! If you found this helpful, feel free to give the repository a ⭐.*
+
+```
+
+```
