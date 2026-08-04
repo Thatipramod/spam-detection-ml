@@ -105,7 +105,7 @@ https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection
 
 # 📈 Model Performance
 
-> *(Replace these values with your actual model results if different.)*
+
 
 | Metric | Score |
 |---------|--------|
