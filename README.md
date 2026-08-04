@@ -109,10 +109,10 @@ https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection
 
 | Metric | Score |
 |---------|--------|
-| Accuracy | 98% |
-| Precision | 98% |
-| Recall | 97% |
-| F1-Score | 98% |
+| Accuracy | 97.7% |
+| Precision | 91.9% |
+| Recall | 91.5% |
+| F1-Score | 91.7% |
 
 ---
 
