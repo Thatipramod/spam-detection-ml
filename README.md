@@ -265,9 +265,9 @@ This project also showcases the deployment of an ML model using Streamlit with a
 
 **Streamlit Cloud**
 
-https://spamguard.streamlit.app
+https://spam-predictor.streamlit.app/
 
-*(Replace with your actual deployment link.)*
+
 
 ---
 
