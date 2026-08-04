@@ -1,10 +1,8 @@
 
-/* Use Streamlit's native background variable for adaptive theming */
 .main {
     background-color: var(--background-color); 
 }
 
-/* Text color adapts automatically to Light/Dark mode */
 h1, h2, h3, h4 {
     color: var(--text-color);
     font-family: 'Inter', 'Segoe UI', sans-serif;
@@ -19,17 +17,14 @@ footer {
    COMPONENTS (METRICS & BUTTONS)
    ========================================================= */
 
-/* Minimalist Card Styling for Metrics */
 div[data-testid="stMetric"] {
     border-radius: 8px;
-    /* Transparent border adapts to dark/light backgrounds automatically */
     border: 1px solid rgba(128, 128, 128, 0.2);
     padding: 15px;
     background-color: var(--secondary-background-color);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); 
 }
 
-/* Modern, flat buttons (Retained your primary blue accent) */
 .stButton > button {
     width: 100%;
     border-radius: 6px;
@@ -51,8 +46,9 @@ div[data-testid="stMetric"] {
    ========================================================= */
 
 /* Adaptive background for the sidebar */
-[data-testid="stSidebar"] {
-    background-color: var(--secondary-background-color);
+[data-testid="stSidebar"],
+[data-testid="stSidebarContent"] {
+    background-color: var(--secondary-background-color) !important;
     border-right: 1px solid rgba(128, 128, 128, 0.2);
 }
 
@@ -76,14 +72,12 @@ div[data-testid="stMetric"] {
     transition: all 0.2s ease;
 }
 
-/* Hover Effect for inactive links (Subtle transparent gray) */
 [data-testid="stSidebarNav"] a:hover {
     background-color: rgba(128, 128, 128, 0.1);
 }
 
-/* ✨ The Active Page Highlight (Clean Left Accent) ✨ */
+/* ✨ The Active Page Highlight ✨ */
 [data-testid="stSidebarNav"] a[aria-current="page"] {
-    /* Light transparent blue background works on both themes */
     background-color: rgba(37, 99, 235, 0.1);
     color: #2563eb !important;
     font-weight: 600;
@@ -91,12 +85,28 @@ div[data-testid="stMetric"] {
     border-left: 4px solid #2563eb; 
 }
 
-/* Ensure text and icons take the active color */
 [data-testid="stSidebarNav"] a[aria-current="page"] span {
     color: #2563eb !important;
 }
 
-/* Prevent Streamlit's default SVG icons from breaking the layout */
 [data-testid="stSidebarNav"] svg {
     margin-right: 8px;
+}
+
+/* =========================================================
+   📱 MOBILE RESPONSIVE OVERLAY FIX
+   ========================================================= */
+
+@media (max-width: 768px) {
+    /* Force high z-index and solid background when sidebar opens on mobile */
+    [data-testid="stSidebar"] {
+        z-index: 999999 !important;
+        background-color: var(--secondary-background-color) !important;
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    [data-testid="stSidebarUserContent"],
+    [data-testid="stSidebarNav"] {
+        background-color: var(--secondary-background-color) !important;
+    }
 }
