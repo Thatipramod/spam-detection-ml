@@ -100,21 +100,31 @@ section[data-testid="stSidebar"] > div,
 }
 
 /* =========================================================
-   📱 MOBILE DRAWER SOLID OVERLAY FIX (NO BLUR/TRANSPARENCY)
+   📱 MOBILE DRAWER SINGLE-LAYER & SHADOW FIX
    ========================================================= */
 
 @media (max-width: 768px) {
-    section[data-testid="stSidebar"],
-    section[data-testid="stSidebar"] > div,
-    [data-testid="stSidebarContent"],
-    [data-testid="stSidebarUserContent"] {
+    /* 1. Set clean solid background and single non-striped shadow */
+    section[data-testid="stSidebar"] {
         background-color: var(--secondary-background-color) !important;
         background: var(--secondary-background-color) !important;
         opacity: 1 !important;
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
         z-index: 999999 !important;
-        width: 82% !important;
-        box-shadow: 20px 0 60px rgba(0, 0, 0, 0.7) !important;
+        width: 80% !important;
+        box-shadow: 5px 0 20px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* 2. Strip conflicting inner box-shadows that cause the multi-layer bands */
+    section[data-testid="stSidebar"] > div,
+    section[data-testid="stSidebar"] [data-testid="stSidebarContent"],
+    section[data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {
+        background-color: var(--secondary-background-color) !important;
+        background: var(--secondary-background-color) !important;
+        opacity: 1 !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
     }
 }
