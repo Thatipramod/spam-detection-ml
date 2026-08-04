@@ -1,4 +1,5 @@
 
+
 .main {
     background-color: var(--background-color); 
 }
@@ -42,14 +43,17 @@ div[data-testid="stMetric"] {
 }
 
 /* =========================================================
-   CLEAN & SIMPLE SIDEBAR NAVIGATION         
+   SIDEBAR & MOBILE OVERLAY FIX (FORCED SOLID BACKGROUND)
    ========================================================= */
 
-/* Adaptive background for the sidebar */
-[data-testid="stSidebar"],
-[data-testid="stSidebarContent"] {
-    background-color: var(--secondary-background-color) !important;
-    border-right: 1px solid rgba(128, 128, 128, 0.2);
+/* Target every parent and nested container inside the sidebar */
+section[data-testid="stSidebar"],
+section[data-testid="stSidebar"] > div,
+[data-testid="stSidebarContent"],
+[data-testid="stSidebarUserContent"],
+[data-testid="stSidebarNav"] {
+    background-color: var(--secondary-background-color, #f1f5f9) !important;
+    opacity: 1 !important;
 }
 
 /* Section Headers ("Main App", "Analytics & Info") */
@@ -78,7 +82,7 @@ div[data-testid="stMetric"] {
 
 /* ✨ The Active Page Highlight ✨ */
 [data-testid="stSidebarNav"] a[aria-current="page"] {
-    background-color: rgba(37, 99, 235, 0.1);
+    background-color: rgba(37, 99, 235, 0.15) !important;
     color: #2563eb !important;
     font-weight: 600;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -93,20 +97,11 @@ div[data-testid="stMetric"] {
     margin-right: 8px;
 }
 
-/* =========================================================
-   📱 MOBILE RESPONSIVE OVERLAY FIX
-   ========================================================= */
-
+/* Mobile Drawer Stacking & Shadow */
 @media (max-width: 768px) {
-    /* Force high z-index and solid background when sidebar opens on mobile */
-    [data-testid="stSidebar"] {
+    section[data-testid="stSidebar"] {
         z-index: 999999 !important;
-        background-color: var(--secondary-background-color) !important;
-        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2) !important;
-    }
-
-    [data-testid="stSidebarUserContent"],
-    [data-testid="stSidebarNav"] {
-        background-color: var(--secondary-background-color) !important;
+        width: 80% !important;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3) !important;
     }
 }
